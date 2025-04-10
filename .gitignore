@@ -7,8 +7,6 @@
 .buildlog/
 .history
 
-
-
 # Flutter repo-specific
 /bin/cache/
 /bin/internal/bootstrap.bat
@@ -109,6 +107,10 @@ coverage/
 
 # Symbols
 app.*.symbols
+
+# IntelliJ IDEA/Android Studio
+.idea/
+*.iml
 
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3

@@ -28,17 +28,17 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Map<String, dynamic>> villes = [
-    {'lieu': 'Lille', 'weather': 'nuageux', 'temp': 17},
-    {'lieu': 'Paris', 'weather': 'ensoleillé', 'temp': 20},
-    {'lieu': 'Lyon', 'weather': 'pluvieux', 'temp': 15},
-    {'lieu': 'Marseille', 'weather': 'ensoleillé', 'temp': 25},
-    {'lieu': 'Toulouse', 'weather': 'nuageux', 'temp': 22},
-    {'lieu': 'Nice', 'weather': 'ensoleillé', 'temp': 28},
-    {'lieu': 'Bordeaux', 'weather': 'pluvieux', 'temp': 18},
-    {'lieu': 'Strasbourg', 'weather': 'nuageux', 'temp': 16},
-    {'lieu': 'Nantes', 'weather': 'pluvieux', 'temp': 19},
-  ];
+final List<Map<String, dynamic>> villes = [
+  {'lieu': 'Lille', 'weather': 'nuageux', 'temp': 17},
+  {'lieu': 'Paris', 'weather': 'ensoleillé', 'temp': 20},
+  {'lieu': 'Lyon', 'weather': 'orageux', 'temp': 15}, 
+  {'lieu': 'Nice', 'weather': 'neigeux', 'temp': 28},
+  {'lieu': 'Marseille', 'weather': 'pluvieux', 'temp': 22},
+  {'lieu': 'Toulouse', 'weather': 'ensoleillé', 'temp': 25},
+  {'lieu': 'Bordeaux', 'weather': 'nuageux', 'temp': 18},
+  {'lieu': 'Strasbourg', 'weather': 'orageux', 'temp': 16},
+  {'lieu': 'Nantes', 'weather': 'pluvieux', 'temp': 19},
+];
 
   int currentIndex = 0;
 
@@ -50,6 +50,10 @@ class _MyHomePageState extends State<MyHomePage> {
         return Icons.cloud;
       case 'pluvieux':
         return Icons.umbrella;
+      case 'neigeux':
+        return Icons.ac_unit;
+      case 'orageux':
+        return Icons.flash_on;
       default:
         return Icons.help;
     }

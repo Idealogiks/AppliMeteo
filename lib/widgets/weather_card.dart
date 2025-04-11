@@ -4,15 +4,15 @@ class WeatherCard extends StatelessWidget {
   final String cityName;
   final String? countryName;
   final double temperature;
-  final String weatherCondition;
-  final double uv;
+  final String? iconUrl;
+  final String? weatherCondition;
+  final double? uv;
   final double? feelsLike;
-  final double? humidity; 
+  final double? humidity;
   final double? pressure;
   final double? windSpeed;
   final String? sunrise;
   final String? sunset;
-  final String? iconUrl;
   final VoidCallback onTap;
 
   const WeatherCard({
@@ -20,6 +20,7 @@ class WeatherCard extends StatelessWidget {
     required this.cityName,
     required this.countryName,
     required this.temperature,
+    required this.iconUrl,
     required this.weatherCondition,
     required this.uv,
     required this.feelsLike,
@@ -28,7 +29,6 @@ class WeatherCard extends StatelessWidget {
     required this.windSpeed,
     required this.sunrise,
     required this.sunset,
-    required this.iconUrl,
     required this.onTap,
   });
 
@@ -64,7 +64,7 @@ class WeatherCard extends StatelessWidget {
               ),
             const SizedBox(height: 8),
             Text(
-              'Ville : $cityName',
+              '$cityName${countryName != null ? ', $countryName' : ''}',
               style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,

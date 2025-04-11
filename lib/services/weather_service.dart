@@ -1,5 +1,6 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class WeatherService {
   static Future<Map<String, dynamic>> fetchWeather(String city) async {
@@ -17,19 +18,28 @@ class WeatherService {
       return {
         'cityName': data['location']['name'] ?? 'Ville inconnue',
         'countryName': data['location']['country'] ?? 'Pays inconnu',
-        'weatherCondition': data['current']['condition']['text'] ?? 'Condition inconnue',
-        'temperature': data['current']['temp_c'] ?? 0.0,
-        'feelsLike': data['current']['feelslike_c'] ?? 0.0,
-        'humidity': data['current']['humidity'] ?? 0.0,
-        'pressure': data['current']['pressure_mb'] ?? 0.0,
-        'windSpeed': data['current']['wind_kph'] ?? 0.0,
+        'temperature': (data['current']['temp_c'] as num?)?.toDouble() ?? 0.0,
+        'feelsLike': (data['current']['feelslike_c'] as num?)?.toDouble() ?? 0.0,
+        'humidity': (data['current']['humidity'] as num?)?.toDouble() ?? 0.0,
+        'pressure': (data['current']['pressure_mb'] as num?)?.toDouble() ?? 0.0,
+        'windSpeed': (data['current']['wind_kph'] as num?)?.toDouble() ?? 0.0,
         'sunrise': data['forecast']['forecastday'][0]['astro']['sunrise'] ?? 'N/A',
         'sunset': data['forecast']['forecastday'][0]['astro']['sunset'] ?? 'N/A',
-        'uv': data['current']['uv'] ?? 0.0,
+        'uv': (data['current']['uv'] as num?)?.toDouble() ?? 0.0,
+        'weatherCondition': data['current']['condition']['text'] ?? 'Condition inconnue',
         'iconUrl': 'http:${data['current']['condition']['icon']}',
       };
     } else {
       throw Exception('Ville introuvable ou erreur de requête.');
     }
+  }
+}
+
+String formatTimeToFrench(String rawTime) {
+  try {
+    final parsedTime = DateFormat('hh:mm a', 'en_US').parse(rawTime);
+    return DateFormat('H\'h\'mm').format(parsedTime);
+  } catch (e) {
+    return rawTime; 
   }
 }

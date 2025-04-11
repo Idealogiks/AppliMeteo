@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 175, 163, 208)),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 166, 186, 222)),
       ),
       home: const MyHomePage(title: 'Météo'),
     );
@@ -119,7 +119,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(16),
                 margin: const EdgeInsets.symmetric(horizontal: 16),
                 decoration: BoxDecoration(
-                  color: const Color.fromARGB(255, 175, 163, 208),
+                  color: const Color.fromARGB(255, 166, 186, 222),
                   borderRadius: BorderRadius.circular(8),
                 ),
                 child: Column(
@@ -128,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     Icon(
                       _getWeatherIcon(_weatherCondition),
                       size: 50,
-                      color: Colors.orange,
+                      color: Colors.grey,
                     ),
                     Text(
                       'Ville : $_cityName',
@@ -143,7 +143,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       style: const TextStyle(fontSize: 16),
                     ),
                     Text(
-                      'UV :  ${_uv!.toStringAsFixed(1)}°C',
+                      'UV :  ${_uv!.toStringAsFixed(1)}',
                       style: const TextStyle(fontSize: 16),
                     ),
                   ],

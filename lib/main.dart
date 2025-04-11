@@ -78,6 +78,11 @@ class _MyHomePageState extends State<MyHomePage> {
     if (condition.toLowerCase().contains('rain')) return Icons.umbrella;
     if (condition.toLowerCase().contains('snow')) return Icons.ac_unit;
     if (condition.toLowerCase().contains('storm')) return Icons.flash_on;
+    if (condition.toLowerCase().contains('fog')) return Icons.foggy;
+    if (condition.toLowerCase().contains('wind')) return Icons.air;
+    if (condition.toLowerCase().contains('mist')) return Icons.filter_drama; 
+    if (condition.toLowerCase().contains('overcast')) return Icons.cloud_queue;  
+    if (condition.toLowerCase().contains('clear')) return Icons.wb_sunny;  
     return Icons.help;
   }
 
